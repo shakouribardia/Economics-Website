@@ -1,18 +1,327 @@
 <!DOCTYPE html>
+
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>آموزش جامع اقتصاد</title>
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="https://unpkg.com/recharts@2.5.0/dist/Recharts.js"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 </head>
-<body>
-    <div id="root"></div>
-    <script type="text/babel" src="app.js"></script>
+<body class="bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <header class="bg-gradient-to-l from-blue-600 to-purple-600 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-6">
+            <h1 class="text-3xl md:text-4xl font-bold mb-2">آموزش جامع اقتصاد</h1>
+            <p class="text-blue-100 text-sm md:text-base">خرد • کلان • پول و بانکداری • اقتصادسنجی</p>
+        </div>
+    </header>
+
+```
+<div class="container mx-auto px-4 py-8">
+    <div class="flex flex-col md:flex-row gap-6">
+        <aside class="md:w-64">
+            <div class="bg-white rounded-lg shadow-md p-4 sticky top-4">
+                <h2 class="text-lg font-bold text-gray-800 mb-4">فهرست مطالب</h2>
+                <nav class="space-y-2">
+                    <button onclick="showSection('intro')" class="nav-btn w-full flex items-center gap-3 p-3 rounded-lg transition-all hover:bg-gray-100 text-gray-700">
+                        <span>📚</span>
+                        <span class="font-medium text-sm">مقدمات اقتصاد</span>
+                    </button>
+                    <button onclick="showSection('micro')" class="nav-btn w-full flex items-center gap-3 p-3 rounded-lg transition-all hover:bg-gray-100 text-gray-700">
+                        <span>📈</span>
+                        <span class="font-medium text-sm">اقتصاد خرد</span>
+                    </button>
+                    <button onclick="showSection('macro')" class="nav-btn w-full flex items-center gap-3 p-3 rounded-lg transition-all hover:bg-gray-100 text-gray-700">
+                        <span>📊</span>
+                        <span class="font-medium text-sm">اقتصاد کلان</span>
+                    </button>
+                    <button onclick="showSection('money')" class="nav-btn w-full flex items-center gap-3 p-3 rounded-lg transition-all hover:bg-gray-100 text-gray-700">
+                        <span>💰</span>
+                        <span class="font-medium text-sm">پول و بانکداری</span>
+                    </button>
+                    <button onclick="showSection('econometrics')" class="nav-btn w-full flex items-center gap-3 p-3 rounded-lg transition-all hover:bg-gray-100 text-gray-700">
+                        <span>📉</span>
+                        <span class="font-medium text-sm">اقتصادسنجی</span>
+                    </button>
+                </nav>
+            </div>
+        </aside>
+
+        <main class="flex-1">
+            <!-- مقدمات -->
+            <div id="intro" class="section bg-white rounded-lg shadow-md p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 pb-4 border-b-2">📚 مقدمات اقتصاد</h2>
+                <p class="text-lg mb-6">اقتصاد علم مطالعه چگونگی تخصیص منابع محدود برای ارضای نیازهای نامحدود است.</p>
+                
+                <div class="bg-blue-50 p-5 rounded-lg mb-6">
+                    <h3 class="font-bold text-xl mb-3">سه سوال اساسی</h3>
+                    <div class="space-y-2">
+                        <div class="bg-white p-3 rounded"><strong>چه چیزی تولید شود؟</strong> - انتخاب کالاها و خدمات</div>
+                        <div class="bg-white p-3 rounded"><strong>چگونه تولید شود؟</strong> - انتخاب فناوری</div>
+                        <div class="bg-white p-3 rounded"><strong>برای چه کسی؟</strong> - نحوه توزیع</div>
+                    </div>
+                </div>
+
+                <div class="bg-purple-50 p-5 rounded-lg mb-6">
+                    <h3 class="font-bold text-xl mb-3">عوامل تولید</h3>
+                    <div class="grid md:grid-cols-2 gap-3">
+                        <div class="bg-white p-3 rounded">🌍 <strong>زمین:</strong> منابع طبیعی</div>
+                        <div class="bg-white p-3 rounded">👷 <strong>نیروی کار:</strong> تلاش انسانی</div>
+                        <div class="bg-white p-3 rounded">🏭 <strong>سرمایه:</strong> ماشین‌آلات</div>
+                        <div class="bg-white p-3 rounded">💡 <strong>کارآفرینی:</strong> نوآوری</div>
+                    </div>
+                </div>
+
+                <div class="bg-amber-50 p-5 rounded-lg">
+                    <h3 class="font-bold text-xl mb-3">هزینه فرصت</h3>
+                    <p class="mb-2">ارزش بهترین گزینه‌ای که برای انتخاب یک گزینه دیگر از دست می‌دهید.</p>
+                    <div class="bg-white p-3 rounded text-center font-mono">
+                        هزینه فرصت = ارزش بهترین جایگزین
+                    </div>
+                </div>
+            </div>
+
+            <!-- اقتصاد خرد -->
+            <div id="micro" class="section hidden bg-white rounded-lg shadow-md p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 pb-4 border-b-2">📈 اقتصاد خرد</h2>
+                <p class="text-lg mb-6">مطالعه رفتار مصرف‌کنندگان، تولیدکنندگان و بازارها.</p>
+
+                <div class="bg-purple-50 p-5 rounded-lg mb-6">
+                    <h3 class="font-bold text-xl mb-3">عرضه و تقاضا</h3>
+                    <div class="grid md:grid-cols-2 gap-3 mb-4">
+                        <div class="bg-white p-3 rounded">
+                            <strong>قانون تقاضا:</strong>
+                            <div class="bg-purple-100 p-2 rounded mt-2 text-center font-mono">Qd = a - bP</div>
+                            <p class="text-sm text-gray-600 mt-1">با افزایش قیمت، تقاضا کاهش می‌یابد</p>
+                        </div>
+                        <div class="bg-white p-3 rounded">
+                            <strong>قانون عرضه:</strong>
+                            <div class="bg-purple-100 p-2 rounded mt-2 text-center font-mono">Qs = c + dP</div>
+                            <p class="text-sm text-gray-600 mt-1">با افزایش قیمت، عرضه افزایش می‌یابد</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-indigo-50 p-5 rounded-lg mb-6">
+                    <h3 class="font-bold text-xl mb-3">کشش قیمتی تقاضا</h3>
+                    <div class="bg-white p-4 rounded mb-3">
+                        <div class="bg-indigo-100 p-3 rounded text-center font-mono text-lg">
+                            Ed = (ΔQ/Q) ÷ (ΔP/P)
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-3">
+                        <div class="bg-white p-3 rounded border-r-4 border-green-500">
+                            <strong>|Ed| > 1</strong><br/>تقاضای کشسان<br/>
+                            <span class="text-sm text-gray-600">کالاهای لوکس</span>
+                        </div>
+                        <div class="bg-white p-3 rounded border-r-4 border-yellow-500">
+                            <strong>|Ed| = 1</strong><br/>کشش واحد<br/>
+                            <span class="text-sm text-gray-600">تغییر برابر</span>
+                        </div>
+                        <div class="bg-white p-3 rounded border-r-4 border-red-500">
+                            <strong>|Ed| < 1</strong><br/>تقاضای غیرکشسان<br/>
+                            <span class="text-sm text-gray-600">کالاهای ضروری</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-teal-50 p-5 rounded-lg">
+                    <h3 class="font-bold text-xl mb-3">فرمول‌های کلیدی</h3>
+                    <div class="space-y-2">
+                        <div class="bg-white p-3 rounded font-mono text-center">Q = f(L, K)</div>
+                        <div class="bg-white p-3 rounded font-mono text-center">TC = FC + VC</div>
+                        <div class="bg-white p-3 rounded font-mono text-center">MC = ΔTC / ΔQ</div>
+                        <div class="bg-teal-100 p-3 rounded font-mono text-center font-bold">MR = MC (حداکثر سود)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- اقتصاد کلان -->
+            <div id="macro" class="section hidden bg-white rounded-lg shadow-md p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 pb-4 border-b-2">📊 اقتصاد کلان</h2>
+                <p class="text-lg mb-6">مطالعه عملکرد کل اقتصاد - GDP، تورم، بیکاری.</p>
+
+                <div class="bg-green-50 p-5 rounded-lg mb-6">
+                    <h3 class="font-bold text-xl mb-3">تولید ناخالص داخلی (GDP)</h3>
+                    <div class="bg-white p-4 rounded mb-3">
+                        <div class="bg-green-100 p-3 rounded text-center font-mono text-lg">
+                            GDP = C + I + G + (X - M)
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-3">
+                        <div class="bg-white p-3 rounded"><strong>C:</strong> مصرف خانوار</div>
+                        <div class="bg-white p-3 rounded"><strong>I:</strong> سرمایه‌گذاری</div>
+                        <div class="bg-white p-3 rounded"><strong>G:</strong> مخارج دولت</div>
+                        <div class="bg-white p-3 rounded"><strong>X-M:</strong> صادرات منهای واردات</div>
+                    </div>
+                </div>
+
+                <div class="bg-red-50 p-5 rounded-lg mb-6">
+                    <h3 class="font-bold text-xl mb-3">تورم</h3>
+                    <div class="bg-white p-4 rounded mb-3">
+                        <div class="bg-red-100 p-3 rounded text-center font-mono">
+                            نرخ تورم = [(CPI₁ - CPI₀) / CPI₀] × 100
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-3">
+                        <div class="bg-white p-3 rounded">تورم خزنده: < 10%</div>
+                        <div class="bg-white p-3 rounded">تورم تاخته: 10-100%</div>
+                        <div class="bg-white p-3 rounded">ابرتورم: > 100%</div>
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 p-5 rounded-lg">
+                    <h3 class="font-bold text-xl mb-3">بیکاری</h3>
+                    <div class="bg-white p-4 rounded mb-3">
+                        <div class="bg-blue-100 p-3 rounded text-center font-mono">
+                            نرخ بیکاری = (بیکاران / نیروی کار) × 100
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="bg-white p-3 rounded">📍 بیکاری اصطکاکی: موقت بین دو شغل</div>
+                        <div class="bg-white p-3 rounded">📍 بیکاری ساختاری: عدم تطابق مهارت</div>
+                        <div class="bg-white p-3 rounded">📍 بیکاری ادواری: ناشی از رکود</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- پول و بانکداری -->
+            <div id="money" class="section hidden bg-white rounded-lg shadow-md p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 pb-4 border-b-2">💰 پول و بانکداری</h2>
+                <p class="text-lg mb-6">پول واسطه مبادله، معیار ارزش و ذخیره ارزش است.</p>
+
+                <div class="bg-yellow-50 p-5 rounded-lg mb-6">
+                    <h3 class="font-bold text-xl mb-3">کارکردهای پول</h3>
+                    <div class="grid md:grid-cols-2 gap-3">
+                        <div class="bg-white p-3 rounded">📊 واسطه مبادله</div>
+                        <div class="bg-white p-3 rounded">💰 معیار ارزش</div>
+                        <div class="bg-white p-3 rounded">🏦 ذخیره ارزش</div>
+                        <div class="bg-white p-3 rounded">📝 واحد حسابداری</div>
+                    </div>
+                </div>
+
+                <div class="bg-orange-50 p-5 rounded-lg mb-6">
+                    <h3 class="font-bold text-xl mb-3">خلق پول</h3>
+                    <div class="bg-white p-4 rounded mb-3">
+                        <div class="bg-orange-100 p-3 rounded text-center font-mono text-lg mb-2">
+                            ضریب فزاینده = 1 / نسبت ذخیره
+                        </div>
+                        <p class="text-sm text-center text-gray-600">اگر نسبت ذخیره ۱۰٪ باشد، ضریب = ۱۰</p>
+                    </div>
+                    <div class="bg-orange-100 p-4 rounded">
+                        <p class="text-sm"><strong>مثال:</strong> هر ۱ میلیون تومان سپرده می‌تواند تا ۱۰ میلیون تومان پول در اقتصاد خلق کند!</p>
+                    </div>
+                </div>
+
+                <div class="bg-red-50 p-5 rounded-lg">
+                    <h3 class="font-bold text-xl mb-3">ابزارهای سیاست پولی</h3>
+                    <div class="space-y-2">
+                        <div class="bg-white p-3 rounded">📈 <strong>نرخ بهره:</strong> کنترل هزینه استقراض</div>
+                        <div class="bg-white p-3 rounded">💵 <strong>عملیات بازار باز:</strong> خرید/فروش اوراق</div>
+                        <div class="bg-white p-3 rounded">🏛️ <strong>نسبت ذخیره:</strong> درصد نگهداری بانک‌ها</div>
+                        <div class="bg-white p-3 rounded">💳 <strong>نرخ تنزیل:</strong> وام به بانک‌ها</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- اقتصادسنجی -->
+            <div id="econometrics" class="section hidden bg-white rounded-lg shadow-md p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 pb-4 border-b-2">📉 اقتصادسنجی</h2>
+                <p class="text-lg mb-6">استفاده از روش‌های آماری برای آزمون نظریه‌های اقتصادی.</p>
+
+                <div class="bg-blue-50 p-5 rounded-lg mb-6">
+                    <h3 class="font-bold text-xl mb-3">مدل رگرسیون خطی</h3>
+                    <div class="bg-white p-4 rounded mb-3">
+                        <div class="bg-blue-100 p-3 rounded text-center font-mono text-xl">
+                            Y = β₀ + β₁X + ε
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-3">
+                        <div class="bg-white p-3 rounded"><strong>Y:</strong> متغیر وابسته</div>
+                        <div class="bg-white p-3 rounded"><strong>X:</strong> متغیر مستقل</div>
+                        <div class="bg-white p-3 rounded"><strong>β₀:</strong> عرض از مبدأ</div>
+                        <div class="bg-white p-3 rounded"><strong>β₁:</strong> شیب</div>
+                    </div>
+                </div>
+
+                <div class="bg-indigo-50 p-5 rounded-lg mb-6">
+                    <h3 class="font-bold text-xl mb-3">روش حداقل مربعات (OLS)</h3>
+                    <div class="space-y-2">
+                        <div class="bg-white p-3 rounded font-mono text-center">
+                            β̂₁ = Cov(X,Y) / Var(X)
+                        </div>
+                        <div class="bg-white p-3 rounded font-mono text-center">
+                            β̂₀ = Ȳ - β̂₁X̄
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-rose-50 p-5 rounded-lg mb-6">
+                    <h3 class="font-bold text-xl mb-3">ارزیابی مدل</h3>
+                    <div class="grid md:grid-cols-3 gap-3">
+                        <div class="bg-white p-3 rounded text-center">
+                            <strong>R²</strong><br/>
+                            <div class="font-mono text-sm">0 تا 1</div>
+                            قدرت توضیح
+                        </div>
+                        <div class="bg-white p-3 rounded text-center">
+                            <strong>آماره t</strong><br/>
+                            <div class="font-mono text-sm">|t| > 2</div>
+                            معناداری ضرایب
+                        </div>
+                        <div class="bg-white p-3 rounded text-center">
+                            <strong>آماره F</strong><br/>
+                            <div class="font-mono text-sm">p < 0.05</div>
+                            کل مدل
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-teal-50 p-5 rounded-lg">
+                    <h3 class="font-bold text-xl mb-3">روش‌های پیشرفته</h3>
+                    <div class="grid md:grid-cols-2 gap-2">
+                        <div class="bg-white p-2 rounded text-sm">📊 سری‌های زمانی (ARIMA)</div>
+                        <div class="bg-white p-2 rounded text-sm">📈 داده‌های تابلویی (Panel)</div>
+                        <div class="bg-white p-2 rounded text-sm">🔄 متغیرهای ابزاری (IV)</div>
+                        <div class="bg-white p-2 rounded text-sm">🤖 یادگیری ماشین</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<footer class="bg-gray-800 text-white mt-16 py-8">
+    <div class="container mx-auto px-4 text-center">
+        <p class="text-gray-300 mb-2">وبسایت آموزشی اقتصاد با فرمول‌ها و توضیحات کامل</p>
+        <p class="text-gray-400 text-sm">برای یادگیری عمیق‌تر، مطالعه منابع تخصصی توصیه می‌شود</p>
+    </div>
+</footer>
+
+<script>
+    function showSection(sectionId) {
+        // مخفی کردن همه بخش‌ها
+        document.querySelectorAll('.section').forEach(section => {
+            section.classList.add('hidden');
+        });
+        
+        // نمایش بخش انتخابی
+        document.getElementById(sectionId).classList.remove('hidden');
+        
+        // به‌روزرسانی استایل دکمه‌ها
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+            btn.classList.remove('bg-gradient-to-l', 'from-blue-500', 'to-purple-500', 'text-white', 'shadow-md');
+            btn.classList.add('hover:bg-gray-100', 'text-gray-700');
+        });
+        
+        event.target.closest('.nav-btn').classList.remove('hover:bg-gray-100', 'text-gray-700');
+        event.target.closest('.nav-btn').classList.add('bg-gradient-to-l', 'from-blue-500', 'to-purple-500', 'text-white', 'shadow-md');
+        
+        // اسکرول به بالا
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+</script>
+```
+
 </body>
 </html>
