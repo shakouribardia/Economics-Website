@@ -1,3 +1,7 @@
+import React, { useState } from ‘react’;
+import { BookOpen, TrendingUp, DollarSign, BarChart3, Menu, X } from ‘lucide-react’;
+import { LineChart, Line, AreaChart, Area, BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ScatterChart, Scatter } from ‘recharts’;
+
 const EconomicsWebsite = () => {
 const [activeSection, setActiveSection] = useState(‘intro’);
 const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
